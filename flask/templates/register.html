@@ -1,0 +1,41 @@
+{% extends 'layoutLanding.html' %}
+  {% block body %}
+      <div class="container-fluid-sm">
+          <h2>Weather Monitoring System</h2>
+          <h3>Registration</h3>
+          {% with messages = get_flashed_messages() %}
+            {% if "Password did not match!" in messages %}
+              
+              {% for message in messages %}
+              <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+              </div>
+              {% endfor %}
+            
+            {% else %}
+              {% for message in messages %}
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+              </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          <form action="{{ url_for('site.register') }}" method="POST">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Confirm Password:</label>
+              <input type="password" class="form-control" id="pwd" placeholder="Confirm password" name="confirmpassword" required>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+  {% endblock %}

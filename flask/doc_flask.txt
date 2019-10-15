@@ -1,0 +1,20 @@
+.. Flask Info
+
+Flask API Function Reference
+============================
+
+.. automodule:: flask_api
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+.. automodule:: flask_main
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+.. automodule:: flask_site
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :noindex:

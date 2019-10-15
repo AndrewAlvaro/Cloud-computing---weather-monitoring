@@ -1,0 +1,7 @@
+{% extends 'layoutLanding.html' %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1> Welcome to Weather Monitoring System!</h1>
+        <p>Please login or <a href="{{ url_for('site.register', filename='/flask/templates/register')}}">register here</a> if you're a new member :)</p>
+    </div>
+{% endblock %}
