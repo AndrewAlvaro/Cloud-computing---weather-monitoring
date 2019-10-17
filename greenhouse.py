@@ -3,6 +3,7 @@ from sense_hat import SenseHat
 import datetime
 import time
 from logger import Logger
+from send_data import Data
 from upload_data import upload_data
 import sqlite3
 
@@ -29,16 +30,17 @@ class Info:
 
 
 def main():
-   info = Info()
-   logData = Logger()
-   uploadData = upload_data()
-   timestamp, temperature, humidity = info.getInfo()
+  info = Info()
+  logData = Logger()
+  uploadData = upload_data()
+  send = Data()
+  timestamp, temperature, humidity = info.getInfo()
 
-   logData.dataLogger(timestamp, temperature, humidity)
-   time.sleep(info.SAMPLE_FREQUENCY_SECONDS)
+  logData.dataLogger(timestamp, temperature, humidity)
+  time.sleep(info.SAMPLE_FREQUENCY_SECONDS)
 
-   uploadData.upload(timestamp, temperature, humidity)
-
+  uploadData.upload(timestamp, temperature, humidity)
+  send.sendData(temperature, humidity)
 
 if __name__ == "__main__":
         main()
